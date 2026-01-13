@@ -6,69 +6,65 @@
   <title>Lela93 — Sito Ufficiale</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Comfortaa:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #0f1f1b;
-      --card: rgba(255, 255, 255, 0.08);
+      --card: #142a24;
       --accent: #27f2b2;
-      --text: #e6fffa;
-      --muted: #a8e0d2;
+      --text: #e8fff8;
+      --muted: #a7d7c9;
       --radius: 22px;
       --fs-base: 0.95rem;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; }
 
     body {
+      margin: 0;
       font-family: 'Quicksand', sans-serif;
       font-size: var(--fs-base);
-      background: radial-gradient(circle at top, #1a3a32, #081311);
+      background: radial-gradient(1200px 600px at 50% -10%, #1b3a32 0%, var(--bg) 60%);
       color: var(--text);
       min-height: 100vh;
       display: flex;
       justify-content: center;
-      padding: 30px 15px;
+      padding: 24px;
     }
 
-    .container {
-      max-width: 900px;
+    .wrap {
       width: 100%;
+      max-width: 980px;
       display: grid;
-      gap: 20px;
+      grid-template-columns: 1fr;
+      gap: 18px;
     }
 
-    .card {
-      background: var(--card);
-      backdrop-filter: blur(10px);
-      border-radius: var(--radius);
-      padding: 20px 24px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
-    }
-
+    /* Header */
     header {
-      display: flex;
+      background: linear-gradient(180deg, #16342c, var(--card));
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
       align-items: center;
       gap: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
     }
 
     .avatar {
-      width: 64px;
-      height: 64px;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
       background-size: cover;
       background-position: center;
-      border: 2px solid var(--accent);
+      box-shadow: 0 0 0 3px rgba(39,242,178,.2);
       animation: float 4s ease-in-out infinite;
     }
 
@@ -78,95 +74,191 @@
     }
 
     h1 {
+      margin: 0;
       font-family: 'Comfortaa', cursive;
-      font-size: 1.8rem;
-      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: .5px;
+      font-size: 1.6rem;
     }
 
     .subtitle {
-      margin-top: 6px;
+      margin: 6px 0 0 0;
       color: var(--muted);
       line-height: 1.4;
     }
 
-    .section-title {
-      font-family: 'Comfortaa', cursive;
-      font-size: 1.2rem;
-      margin-bottom: 12px;
-      color: var(--accent);
+    .cta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
-    .socials {
+    .btn {
+      background: rgba(39,242,178,.15);
+      border: 1px solid rgba(39,242,178,.35);
+      color: var(--text);
+      padding: 8px 14px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(39,242,178,.25);
+      background: rgba(39,242,178,.25);
+    }
+
+    /* Grid sections */
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, #143028, var(--card));
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+
+    .card h2 {
+      margin: 0 0 10px 0;
+      font-family: 'Comfortaa', cursive;
+      font-size: 1.2rem;
+      letter-spacing: .4px;
+    }
+
+    /* Bio */
+    .bio { grid-column: span 7; }
+
+    /* Schedule */
+    .schedule { grid-column: span 5; }
+
+    .schedule ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .schedule li {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      border-bottom: 1px dashed rgba(255,255,255,.1);
+      color: var(--muted);
+    }
+
+    .schedule li strong { color: var(--text); }
+
+    /* Social */
+    .socials { grid-column: span 12; }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 12px;
     }
 
     .social {
+      background: rgba(39,242,178,.08);
+      border: 1px solid rgba(39,242,178,.25);
+      border-radius: 16px;
+      padding: 12px 14px;
       text-decoration: none;
       color: var(--text);
-      background: rgba(0, 0, 0, 0.2);
-      padding: 10px 14px;
-      border-radius: 14px;
-      text-align: center;
-      transition: background 0.2s ease, transform 0.2s ease;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
     }
 
     .social:hover {
-      background: rgba(39, 242, 178, 0.15);
       transform: translateY(-2px);
+      background: rgba(39,242,178,.18);
+      box-shadow: 0 8px 18px rgba(39,242,178,.25);
     }
 
-    .schedule {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      color: var(--muted);
+    /* Twitch embed */
+    .twitch { grid-column: span 12; padding: 0; overflow: hidden; }
+
+    .twitch iframe {
+      width: 100%;
+      height: 480px;
+      border: 0;
+      border-radius: var(--radius);
     }
 
+    /* Footer */
     footer {
       text-align: center;
-      font-size: 0.8rem;
       color: var(--muted);
-      opacity: 0.7;
+      font-size: .85rem;
+      padding: 10px;
+    }
+
+    @media (max-width: 800px) {
+      .bio, .schedule { grid-column: span 12; }
+      .twitch iframe { height: 360px; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-
-    <div class="card">
-      <header>
+  <div class="wrap">
+    <header>
+      <div class="brand">
         <div class="avatar" style="background-image: url('mascotte.png');"></div>
         <div>
           <h1>Lela93</h1>
           <p class="subtitle">Ciao, Sono Lela e questo è il mio Sito ufficiale. Qui trovi tutti i miei social, gli orari stream e tanto altro.✨</p>
         </div>
-      </header>
-    </div>
-
-    <div class="card">
-      <div class="section-title">Social</div>
-      <div class="socials">
-        <a class="social" href="https://www.twitch.tv/lela93" target="_blank">Twitch</a>
-        <a class="social" href="https://www.youtube.com/@itsLela93" target="_blank">YouTube</a>
-        <a class="social" href="https://www.instagram.com/_lela93/" target="_blank">Instagram</a>
-        <a class="social" href="https://www.tiktok.com/@itslela93" target="_blank">TikTok</a>
       </div>
-    </div>
-
-    <div class="card">
-      <div class="section-title">Orari Stream</div>
-      <div class="schedule">
-        <div>📅 Lunedì - Venerdì</div>
-        <div>⏰ 13:00 - 17:00</div>
+      <div class="cta">
+        <a class="btn" href="https://www.twitch.tv/lela93" target="_blank">Twitch</a>
+        <a class="btn" href="https://www.youtube.com/@itsLela93" target="_blank">YouTube</a>
+        <a class="btn" href="https://www.tiktok.com/@itslela93" target="_blank">TikTok</a>
+        <a class="btn" href="https://www.instagram.com/_lela93/" target="_blank">Instagram</a>
       </div>
-    </div>
+    </header>
+
+    <section class="grid">
+      <div class="card bio">
+        <h2>Chi sono</h2>
+        <p>Ciao! Sono Lela, streamer e content creator. Qui trovi tutto quello che riguarda i miei contenuti: live, video, social e novità. Il mio stile è dolce, un po’ anime e sempre positivo ✨</p>
+      </div>
+
+      <div class="card schedule">
+        <h2>Orari Stream</h2>
+        <ul>
+          <li><strong>Lunedì</strong> <span>13:00 – 17:00</span></li>
+          <li><strong>Martedì</strong> <span>13:00 – 17:00</span></li>
+          <li><strong>Mercoledì</strong> <span>13:00 – 17:00</span></li>
+          <li><strong>Giovedì</strong> <span>13:00 – 17:00</span></li>
+          <li><strong>Venerdì</strong> <span>13:00 – 17:00</span></li>
+        </ul>
+      </div>
+
+      <div class="card socials">
+        <h2>Seguimi</h2>
+        <div class="social-grid">
+          <a class="social" href="https://www.twitch.tv/lela93" target="_blank">Twitch <span>→</span></a>
+          <a class="social" href="https://www.youtube.com/@itsLela93" target="_blank">YouTube <span>→</span></a>
+          <a class="social" href="https://www.tiktok.com/@itslela93" target="_blank">TikTok <span>→</span></a>
+          <a class="social" href="https://www.instagram.com/_lela93/" target="_blank">Instagram <span>→</span></a>
+        </div>
+      </div>
+
+      <div class="card twitch">
+        <iframe src="https://player.twitch.tv/?channel=lela93&parent=kazyra4.github.io" allowfullscreen></iframe>
+      </div>
+    </section>
 
     <footer>
       © 2026 Lela93 — Tutti i diritti riservati
     </footer>
-
   </div>
 </body>
 </html>
