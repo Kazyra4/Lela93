@@ -280,5 +280,22 @@
       © 2026 Lela93 — Tutti i diritti riservati
     </footer>
   </div>
+  <script>
+  const statusEl = document.querySelector('.status');
+
+  // Qui puoi cambiare manualmente lo stato
+  const isLive = false; // true se è live, false se offline
+
+  if(isLive){
+    statusEl.textContent = 'Live';
+    statusEl.classList.add('live');
+    statusEl.classList.remove('offline');
+  } else {
+    statusEl.textContent = 'Offline';
+    statusEl.classList.add('offline');
+    statusEl.classList.remove('live');
+  }
+</script>
+
 </body>
 </html>
