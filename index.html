@@ -117,22 +117,6 @@ body::after {
 }
 
 
-/* Puntini luminosi */
-body::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  pointer-events: none;
-  background: 
-    radial-gradient(circle at 10% 20%, rgba(62,255,160,0.6) 2px, transparent 3px),
-    radial-gradient(circle at 50% 40%, rgba(62,255,160,0.5) 2px, transparent 3px),
-    radial-gradient(circle at 80% 70%, rgba(62,255,160,0.4) 2px, transparent 3px),
-    radial-gradient(circle at 30% 80%, rgba(62,255,160,0.5) 2px, transparent 3px),
-    radial-gradient(circle at 70% 15%, rgba(62,255,160,0.6) 2px, transparent 3px);
-  animation: blinkDots 2s infinite alternate;
-  z-index: 0;
-}
-
 /* Animazione puntini lampeggianti */
 @keyframes blinkDots {
   0% { opacity: 0.4; }
