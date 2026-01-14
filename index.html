@@ -155,10 +155,12 @@
     }
 
     /* Bio */
-    .bio { grid-column: span 7; }
+    .bio { grid-column: span 6; }        /* Chi sono un po’ più stretto */
 
     /* Schedule */
-    .schedule { grid-column: span 5; }
+    .schedule { grid-column: span 6; }   /* Orari stream stessa larghezza della live */
+
+    .twitch { grid-column: span 6; }     /* Live più piccola */
 
     .schedule ul {
       list-style: none;
@@ -210,7 +212,7 @@
 
     .twitch iframe {
       width: 100%;
-      height: 480px;
+      height: 340px;
       border: 0;
       border-radius: var(--radius);
     }
@@ -244,49 +246,55 @@
     </header>
 
     <section class="grid">
-      <div class="card bio">
-        <h2>Chi sono</h2>
-        <p>Ciao! Sono Lela, streamer e content creator. Qui trovi tutto quello che riguarda i miei contenuti: live, video, social e novità. Il mio stile è dolce, un po’ anime e sempre positivo ✨</p>
-      </div>
 
-      <div class="card schedule">
-        <h2>Orari Stream</h2>
-        <ul>
-          <li><strong>Lunedì</strong> <span>13:00 – 17:00</span></li>
-          <li><strong>Martedì</strong> <span>13:00 – 17:00</span></li>
-          <li><strong>Mercoledì</strong> <span>13:00 – 17:00</span></li>
-          <li><strong>Giovedì</strong> <span>13:00 – 17:00</span></li>
-          <li><strong>Venerdì</strong> <span>13:00 – 17:00</span></li>
-        </ul>
-      </div>
-
-      <div class="card socials">
-        <h2>I miei Social</h2>
-        <div class="social-grid">
-          <a class="social" href="https://www.twitch.tv/lela93" target="_blank">Twitch <span>→</span></a>
-          <a class="social" href="https://www.youtube.com/@itsLela93" target="_blank">YouTube <span>→</span></a>
-          <a class="social" href="https://www.tiktok.com/@itslela93" target="_blank">TikTok <span>→</span></a>
-          <a class="social" href="https://www.instagram.com/_lela93/" target="_blank">Instagram <span>→</span></a>
-        </div>
-      </div>
-
-      <div class="card socials">
-  <h2>Wishlist / Support</h2>
-  <p style="margin: 6px 0 12px 0; color: var(--muted); font-size: 0.85rem;">
-    Per chi avesse piacere a supportarmi col mio lavoro, qui trovi le mie wishlist e i link per sostenermi!💖
-  </p>
-  <div class="social-grid">
-    <a class="social" href="https://www.amazon.it/hz/wishlist/ls/3D5N2Q6T7UYL8/ref=nav_wishlist_lists_1" target="_blank">Amazon Wishlist <span>→</span></a>
-    <a class="social" href="https://store.steampowered.com/wishlist/id/lela93/?sort=dateadded" target="_blank">Steam Wishlist <span>→</span></a>
-    <a class="social" href="https://www.paypal.com/paypalme/Lela93YT" target="_blank">PayPal <span>→</span></a>
+  <!-- Chi sono -->
+  <div class="card bio">
+    <h2>Chi sono</h2>
+    <p>Ciao! Sono Lela, streamer e content creator. Qui trovi tutto quello che riguarda i miei contenuti: live, video, social e novità. Il mio stile è dolce, un po’ anime e sempre positivo ✨</p>
   </div>
-</div>
 
+  <!-- Live Twitch (al posto di Orari Stream) -->
+  <div class="card twitch">
+    <iframe src="https://player.twitch.tv/?channel=lela93&parent=kazyra4.github.io" allowfullscreen></iframe>
+  </div>
 
-      <div class="card twitch">
-        <iframe src="https://player.twitch.tv/?channel=lela93&parent=kazyra4.github.io" allowfullscreen></iframe>
-      </div>
-    </section>
+  <!-- Orari Stream (sotto la live) -->
+  <div class="card schedule">
+    <h2>Orari Stream</h2>
+    <ul>
+      <li><strong>Lunedì</strong> <span>13:00 – 17:00</span></li>
+      <li><strong>Martedì</strong> <span>13:00 – 17:00</span></li>
+      <li><strong>Mercoledì</strong> <span>13:00 – 17:00</span></li>
+      <li><strong>Giovedì</strong> <span>13:00 – 17:00</span></li>
+      <li><strong>Venerdì</strong> <span>13:00 – 17:00</span></li>
+    </ul>
+  </div>
+
+  <!-- Seguimi -->
+  <div class="card socials">
+    <h2>Seguimi</h2>
+    <div class="social-grid">
+      <a class="social" href="https://www.twitch.tv/lela93" target="_blank">Twitch <span>→</span></a>
+      <a class="social" href="https://www.youtube.com/@itsLela93" target="_blank">YouTube <span>→</span></a>
+      <a class="social" href="https://www.tiktok.com/@itslela93" target="_blank">TikTok <span>→</span></a>
+      <a class="social" href="https://www.instagram.com/_lela93/" target="_blank">Instagram <span>→</span></a>
+    </div>
+  </div>
+
+  <!-- Wishlist / Support -->
+  <div class="card socials">
+    <h2>Wishlist / Support</h2>
+    <p style="margin: 6px 0 12px 0; color: var(--muted); font-size: 0.85rem;">
+      Se vuoi supportarmi o vedere cosa desidero, qui trovi le mie wishlist e i link per sostenermi! 💖
+    </p>
+    <div class="social-grid">
+      <a class="social" href="https://www.amazon.it/hz/wishlist/ls/3D5N2Q6T7UYL8/ref=nav_wishlist_lists_1" target="_blank">Amazon Wishlist <span>→</span></a>
+      <a class="social" href="https://store.steampowered.com/wishlist/id/lela93/?sort=dateadded" target="_blank">Steam Wishlist <span>→</span></a>
+      <a class="social" href="https://www.paypal.com/paypalme/Lela93YT" target="_blank">PayPal <span>→</span></a>
+    </div>
+  </div>
+
+</section>
 
     <footer>
       © 2026 Lela93 — Tutti i diritti riservati
