@@ -56,10 +56,10 @@
   padding: 24px;
   color: var(--text);
 
-  /* Background techno fluo con linee */
+  /* Background fluo techno */
   background:
-    radial-gradient(1200px 600px at 50% -10%, #3effa0 0%, transparent 60%), /* alone centrale verde brillante */
-    linear-gradient(180deg, #0b1f0c 0%, #06110a 100%),                      /* sfondo scuro */
+    radial-gradient(1200px 600px at 50% -10%, #3effa0 0%, transparent 60%),
+    linear-gradient(180deg, #0b1f0c 0%, #06110a 100%),
     repeating-linear-gradient(
       45deg,
       rgba(62,255,160,0.12),
@@ -85,6 +85,37 @@
   0% { background-position: 0 0, 0 0, 0 0, 0 0; }
   100% { background-position: 120px 120px, -120px -120px, 60px 60px, -60px -60px; }
 }
+
+/* Puntini luminosi multipli */
+body::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  background:
+    radial-gradient(circle at 10% 20%, rgba(62,255,160,0.6) 2px, transparent 3px),
+    radial-gradient(circle at 25% 50%, rgba(62,255,160,0.5) 1.5px, transparent 2.5px),
+    radial-gradient(circle at 50% 30%, rgba(62,255,160,0.7) 3px, transparent 4px),
+    radial-gradient(circle at 70% 80%, rgba(62,255,160,0.4) 1px, transparent 2px),
+    radial-gradient(circle at 85% 15%, rgba(62,255,160,0.6) 2.5px, transparent 3.5px),
+    radial-gradient(circle at 40% 70%, rgba(62,255,160,0.5) 2px, transparent 3px),
+    radial-gradient(circle at 60% 50%, rgba(62,255,160,0.6) 1.5px, transparent 2.5px);
+  
+  animation: blinkDots 3s infinite alternate;
+}
+
+/* Animazioni puntini lampeggianti casuali */
+@keyframes blinkDots {
+  0% { opacity: 0.4; }
+  20% { opacity: 0.8; }
+  40% { opacity: 0.5; }
+  60% { opacity: 1; }
+  80% { opacity: 0.6; }
+  100% { opacity: 0.4; }
+}
+
 
 /* Puntini luminosi */
 body::after {
