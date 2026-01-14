@@ -50,13 +50,11 @@
   margin: 0;
   font-family: 'Quicksand', sans-serif;
   font-size: var(--fs-base);
-  background: radial-gradient(1200px 600px at 50% -10%, #1b3a32 0%, var(--bg) 60%);
-  color: var(--text);
-  min-height: 100svh;   /* IMPORTANTISSIMO */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
   padding: 24px;
-  overflow-x: hidden;
-}
-
+  color: var(--text);
 
   /* Background fluo techno */
   background:
@@ -115,8 +113,6 @@ body::after {
     radial-gradient(circle at 80% 20%, rgba(62,255,160,0.8) 3px, transparent 4px);
 
   animation: blinkDots 4s infinite alternate, floatDots 8s infinite linear;
-  transform: translateZ(0); /* forza la GPU a gestire i layer separatamente */
-  will-change: transform, opacity;
 }
 
 /* Puntini lampeggianti */
@@ -146,15 +142,12 @@ body::after {
 
 
    .wrap {
-  width: 100%;
-  max-width: 980px;
-  margin: 0 auto;   /* centra orizzontalmente */
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 18px;
-}
-
-
+      width: 100%;
+      max-width: 980px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
 
     /* Header */
     header {
@@ -182,7 +175,7 @@ body::after {
   background-size: cover;
   background-position: center;
   box-shadow: 0 0 0 3px rgba(39,242,178,.2);
-   /* animation: float 4s ease-in-out infinite; */
+  animation: float 4s ease-in-out infinite;
 }
 
 /* Mobile tweaks */
@@ -253,14 +246,14 @@ body::after {
       gap: 18px;
     }
 
-   .card {
-  background: linear-gradient(180deg, #143028, #142a24);
+    .card {
+  background: linear-gradient(180deg, #143028, var(--card));
   border-radius: var(--radius);
   padding: 18px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  box-shadow: 
+    0 10px 30px rgba(0,0,0,.25),
+    0 0 20px var(--accent-light); /* glow verde neon */
 }
-
-
 
 
 
@@ -352,41 +345,27 @@ body::after {
       .bio, .schedule { grid-column: span 12; }
       .twitch iframe { height: 360px; }
     }
-    
- /* Strato decorativo techno (NO animazioni = NO tremolio) */
-body::after {
+   
+    /* Mascotte sul lato destro dello sfondo */
+body::before {
   content: '';
-  position: fixed;
-  inset: 0;
-  background-image:
-    repeating-linear-gradient(
-      135deg,
-      rgba(39,242,178,0.08) 0px,
-      rgba(39,242,178,0.08) 1px,
-      transparent 1px,
-      transparent 18px
-    ),
-    repeating-linear-gradient(
-      45deg,
-      rgba(39,242,178,0.05) 0px,
-      rgba(39,242,178,0.05) 1px,
-      transparent 1px,
-      transparent 28px
-    );
-  opacity: 0.6;
-  pointer-events: none;
+  position: fixed; /* rimane sempre sullo sfondo */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 35%; /* quanto spazio occupa a destra */
+  background-image: url('mascotte.png'); /* il file della mascotte */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right bottom; /* lato destro inferiore */
+  opacity: 0.15; /* trasparenza per non disturbare */
+  pointer-events: none; /* non interferisce con click o scroll */
   z-index: 0;
 }
-
-}
-
-}
-
 
   </style>
 </head>
 <body>
- <div class="mascotte-bg"></div>
   <div class="wrap">
     <header>
       <div class="brand">
