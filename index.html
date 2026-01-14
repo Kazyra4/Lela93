@@ -254,13 +254,17 @@ body::after {
     }
 
     .card {
-  background: linear-gradient(180deg, #143028, var(--card));
+  background: linear-gradient(
+    180deg,
+    rgba(20, 48, 40, 0.95),
+    rgba(20, 42, 36, 0.95)
+  );
   border-radius: var(--radius);
   padding: 18px;
-  box-shadow: 
-    0 10px 30px rgba(0,0,0,.25),
-    0 0 20px var(--accent-light); /* glow verde neon */
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  backdrop-filter: blur(2px); /* leggero vetro, opzionale */
 }
+
 
 
 
