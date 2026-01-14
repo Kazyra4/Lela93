@@ -113,6 +113,8 @@ body::after {
     radial-gradient(circle at 80% 20%, rgba(62,255,160,0.8) 3px, transparent 4px);
 
   animation: blinkDots 4s infinite alternate, floatDots 8s infinite linear;
+  transform: translateZ(0); /* forza la GPU a gestire i layer separatamente */
+  will-change: transform, opacity;
 }
 
 /* Puntini lampeggianti */
@@ -361,6 +363,8 @@ body::before {
   opacity: 0.15; /* trasparenza per non disturbare */
   pointer-events: none; /* non interferisce con click o scroll */
   z-index: 0;
+  transform: translateZ(0); /* forza la GPU a gestire i layer separatamente */
+  will-change: transform, opacity;
 }
 
   </style>
