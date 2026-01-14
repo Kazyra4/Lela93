@@ -32,15 +32,15 @@
 }
 
    :root {
-  --bg: #0c1f12;         /* sfondo principale scuro */
-  --card: #142d1f;       /* card leggermente più chiara dello sfondo */
-  --accent: #39ffb8;     /* verde fluo principale */
-  --accent-light: #7effd0; /* verde neon chiaro per glow e hover */
-  --text: #e0fff5;       /* testo principale chiaro */
-  --muted: #8fd8c4;      /* testo secondario / sottotitoli */
+  --bg: #0aff8f; /* verde neon più acceso */
+  --card: #142a24;
+  --accent: #27f2b2;
+  --text: #e8fff8;
+  --muted: #a7d7c9;
   --radius: 22px;
   --fs-base: 0.95rem;
 }
+
 
 
 
@@ -50,7 +50,12 @@
   margin: 0;
   font-family: 'Quicksand', sans-serif;
   font-size: var(--fs-base);
-  background: radial-gradient(1200px 600px at 50% -10%, #1b3a32 0%, var(--bg) 60%);
+  background: radial-gradient(
+    1200px 600px at 50% -10%,
+    #1aff8f 0%,   /* verde centrale brillante */
+    #0aff5f 40%,  /* verde elettrico intermedio */
+    var(--bg) 100% /* bordo più scuro */
+  );
   color: var(--text);
   min-height: 100svh;
   padding: 24px;
