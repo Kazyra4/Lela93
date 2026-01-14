@@ -8,6 +8,29 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    .status {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 2px 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 12px;
+  background-color: rgba(255,255,255,0.1);
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status.live {
+  background-color: #27f2b2;
+  color: #0f1f1b;
+}
+
+.status.offline {
+  background-color: rgba(255,255,255,0.1);
+  color: var(--muted);
+}
+
     :root {
       --bg: #0f1f1b;
       --card: #142a24;
