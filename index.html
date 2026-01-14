@@ -149,8 +149,6 @@ body::after {
   display: grid;
   grid-template-columns: 1fr;
   gap: 18px;
-  position: relative;
-  z-index: 1;
 }
 
 
@@ -367,35 +365,11 @@ body::before {
   pointer-events: none; /* non interferisce con click o scroll */
   z-index: 0;
 }
-    body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url('mascotte2.png');  /* la nuova mascotte */
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: -10% bottom;  /* spostata fuori a sinistra */
-  opacity: 0.15;                        /* trasparenza come quella di destra */
-  pointer-events: none;
-  z-index: 0;
-}
- @media (max-width: 800px) {
-  body::before {
-    background-position: 115% bottom;  /* destra */
-  }
-  body::after {
-    background-position: -15% bottom;  /* sinistra */
-  }
-}
-
-
 
   </style>
 </head>
 <body>
- <div class="mascotte.png"></div>
-  <div class="mascotte2.png"></div>
-   <div class="wrap">
+  <div class="wrap">
     <header>
       <div class="brand">
         <div class="avatar" style="background-image: url('LelaProfile.png');"></div>
