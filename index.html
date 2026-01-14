@@ -348,25 +348,39 @@ body::after {
       .twitch iframe { height: 360px; }
     }
    
-    /* Mascotte sul lato destro dello sfondo */
+/* ----------------------- */
+/* Mascotte definitiva sul lato destro */
 body::before {
   content: '';
-  position: fixed; /* rimane sempre sullo sfondo */
+  position: fixed;        /* rimane sempre sullo sfondo */
   top: 0;
-  right: -20px; /* sposta leggermente oltre il bordo destro */
+  right: 0;
   bottom: 0;
-  width: 25%; /* quanto spazio occupa a destra */
-  background-image: url('mascotte.png'); /* il file della mascotte */
+  width: 28%;             /* leggermente più piccola per non sovrapporsi al contenuto */
+  background-image: url('mascotte.png'); /* percorso della mascotte */
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: right bottom; /* lato destro inferiore */
-  opacity: 0.15; /* trasparenza per non disturbare */
-  pointer-events: none; /* non interferisce con click o scroll */
+  background-position: right bottom;     /* lato destro inferiore */
+  opacity: 0.15;          /* trasparente senza disturbare */
+  pointer-events: none;   /* non blocca click o scroll */
   z-index: 0;
-  
-   /* ...tutto il CSS esistente della mascotte... */
-  transform: translateZ(0);   /* forza la GPU a gestire separatamente */
-  will-change: opacity;       /* ottimizza il layer */
+
+  /* Ottimizzazioni per eliminare tremolio/zoom */
+  transform: translateZ(0);  
+  will-change: opacity;     
+}
+
+/* Mobile tweaks */
+@media (max-width: 800px) {
+  body::before {
+    width: 25%; /* più piccolo su tablet e telefoni */
+  }
+}
+
+@media (max-width: 500px) {
+  body::before {
+    width: 20%; /* dimensioni ottimizzate per telefoni stretti */
+  }
 }
 
   </style>
