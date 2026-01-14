@@ -345,6 +345,24 @@ body::after {
       .bio, .schedule { grid-column: span 12; }
       .twitch iframe { height: 360px; }
     }
+   
+    /* Mascotte sul lato destro dello sfondo */
+body::before {
+  content: '';
+  position: fixed; /* rimane sempre sullo sfondo */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 35%; /* quanto spazio occupa a destra */
+  background-image: url('mascotte.png'); /* il file della mascotte */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right bottom; /* lato destro inferiore */
+  opacity: 0.15; /* trasparenza per non disturbare */
+  pointer-events: none; /* non interferisce con click o scroll */
+  z-index: 0;
+}
+
   </style>
 </head>
 <body>
