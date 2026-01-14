@@ -46,7 +46,7 @@
 
     * { box-sizing: border-box; }
 
-    body {
+   body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
   font-size: var(--fs-base);
@@ -55,38 +55,36 @@
   justify-content: center;
   padding: 24px;
   color: var(--text);
-  
-  /* background futuristico */
+
+  /* Background super fluo, verde elettrico */
   background:
-    radial-gradient(1200px 600px at 50% -10%, #1b442d 0%, transparent 60%),
-    linear-gradient(180deg, #0c1f12 0%, #08200f 100%),
+    radial-gradient(1200px 600px at 50% -10%, #3effa0 0%, transparent 60%), /* alone centrale verde chiaro */
+    linear-gradient(180deg, #0b1f0c 0%, #06110a 100%),                    /* sfondo scuro */
     repeating-linear-gradient(
       45deg,
-      rgba(57,255,184,0.05),
-      rgba(57,255,184,0.05) 2px,
+      rgba(62,255,160,0.1),
+      rgba(62,255,160,0.1) 2px,
       transparent 2px,
       transparent 6px
     ),
     repeating-linear-gradient(
       -45deg,
-      rgba(57,255,184,0.05),
-      rgba(57,255,184,0.05) 2px,
+      rgba(62,255,160,0.1),
+      rgba(62,255,160,0.1) 2px,
       transparent 2px,
       transparent 6px
     );
   background-blend-mode: overlay;
-  animation: moveLines 30s linear infinite;
 
+  animation: moveLines 25s linear infinite;
 }
 
-    @keyframes moveLines {
+@keyframes moveLines {
   0% { background-position: 0 0, 0 0, 0 0, 0 0; }
-  100% { background-position: 100px 100px, -100px -100px, 50px 50px, -50px -50px; }
+  100% { background-position: 120px 120px, -120px -120px, 60px 60px, -60px -60px; }
 }
 
-
-
-    .wrap {
+   .wrap {
       width: 100%;
       max-width: 980px;
       display: grid;
