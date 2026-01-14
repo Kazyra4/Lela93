@@ -90,17 +90,10 @@
 /* Puntini e stelline lampeggianti/fluttuanti */
 body::after {
   content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url('mascotte2.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: -10% bottom; /* spostata fuori verso sinistra */
-  opacity: 0.15;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
   pointer-events: none;
   z-index: 0;
-}
-
 
   background:
     radial-gradient(circle at 5% 10%, rgba(62,255,160,0.6) 2px, transparent 3px),
@@ -156,8 +149,6 @@ body::after {
   display: grid;
   grid-template-columns: 1fr;
   gap: 18px;
-  position: relative; /* aggiunto */
-  z-index: 1;         /* aggiunto */
 }
 
 
