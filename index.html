@@ -168,14 +168,20 @@ body::after {
     }
 
     .avatar {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background-size: cover;
-      background-position: center;
-      box-shadow: 0 0 0 3px rgba(39,242,178,.2);
-      animation: float 4s ease-in-out infinite;
-    }
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 0 0 3px rgba(39,242,178,.2);
+  animation: float 4s ease-in-out infinite;
+
+  /* Fix per mobile */
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1; /* mantiene sempre forma quadrata e quindi il cerchio */
+}
+
 
     @keyframes float {
       0%, 100% { transform: translateY(0); }
