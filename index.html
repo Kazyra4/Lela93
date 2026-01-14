@@ -365,6 +365,19 @@ body::before {
   pointer-events: none; /* non interferisce con click o scroll */
   z-index: 0;
 }
+    body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url('mascotte2.png');  /* la nuova mascotte */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: -10% bottom;  /* spostata fuori a sinistra */
+  opacity: 0.15;                        /* trasparenza come quella di destra */
+  pointer-events: none;
+  z-index: 0;
+}
+
 
   </style>
 </head>
