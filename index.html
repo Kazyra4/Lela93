@@ -149,6 +149,8 @@ body::after {
   display: grid;
   grid-template-columns: 1fr;
   gap: 18px;
+  position: relative;
+  z-index: 1;
 }
 
 
@@ -377,6 +379,15 @@ body::before {
   pointer-events: none;
   z-index: 0;
 }
+ @media (max-width: 800px) {
+  body::before {
+    background-position: 115% bottom;  /* destra */
+  }
+  body::after {
+    background-position: -15% bottom;  /* sinistra */
+  }
+}
+
 
 
   </style>
