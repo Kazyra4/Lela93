@@ -58,8 +58,8 @@
 
   /* Background fluo techno */
   background:
-    radial-gradient(1200px 600px at 50% -10%, #3effa0 0%, transparent 60%), /* alone centrale verde brillante */
-    linear-gradient(180deg, #0b1f0c 0%, #06110a 100%),                      /* sfondo scuro */
+    radial-gradient(1200px 600px at 50% -10%, #3effa0 0%, transparent 60%),
+    linear-gradient(180deg, #0b1f0c 0%, #06110a 100%),
     repeating-linear-gradient(
       45deg,
       rgba(62,255,160,0.12),
@@ -86,7 +86,7 @@
   100% { background-position: 120px 120px, -120px -120px, 60px 60px, -60px -60px; }
 }
 
-/* Puntini e stelline lampeggianti */
+/* Puntini e stelline lampeggianti/fluttuanti */
 body::after {
   content: '';
   position: absolute;
@@ -95,7 +95,6 @@ body::after {
   z-index: 0;
 
   background:
-    /* Puntini multipli */
     radial-gradient(circle at 5% 10%, rgba(62,255,160,0.6) 2px, transparent 3px),
     radial-gradient(circle at 15% 40%, rgba(62,255,160,0.5) 1.5px, transparent 2.5px),
     radial-gradient(circle at 25% 70%, rgba(62,255,160,0.7) 3px, transparent 4px),
@@ -105,8 +104,6 @@ body::after {
     radial-gradient(circle at 65% 30%, rgba(62,255,160,0.6) 1.5px, transparent 2.5px),
     radial-gradient(circle at 75% 60%, rgba(62,255,160,0.7) 2px, transparent 3px),
     radial-gradient(circle at 85% 10%, rgba(62,255,160,0.5) 1px, transparent 2px),
-
-    /* Stelline/cuori stilizzati (piccoli) */
     radial-gradient(circle at 10% 15%, rgba(62,255,160,0.8) 3px, transparent 4px),
     radial-gradient(circle at 20% 60%, rgba(62,255,160,0.7) 2px, transparent 3px),
     radial-gradient(circle at 30% 35%, rgba(62,255,160,0.9) 2.5px, transparent 3.5px),
@@ -114,11 +111,11 @@ body::after {
     radial-gradient(circle at 60% 50%, rgba(62,255,160,0.7) 2px, transparent 3px),
     radial-gradient(circle at 70% 75%, rgba(62,255,160,0.9) 2.5px, transparent 3.5px),
     radial-gradient(circle at 80% 20%, rgba(62,255,160,0.8) 3px, transparent 4px);
-  
-  animation: blinkDots 4s infinite alternate;
+
+  animation: blinkDots 4s infinite alternate, floatDots 8s infinite linear;
 }
 
-/* Puntini e stelline lampeggianti casualmente */
+/* Puntini lampeggianti */
 @keyframes blinkDots {
   0% { opacity: 0.3; }
   10% { opacity: 0.8; }
@@ -132,6 +129,16 @@ body::after {
   90% { opacity: 0.8; }
   100% { opacity: 0.3; }
 }
+
+/* Leggero movimento dei puntini/fluttuazione */
+@keyframes floatDots {
+  0% { transform: translate(0px, 0px); }
+  25% { transform: translate(3px, -2px); }
+  50% { transform: translate(-2px, 3px); }
+  75% { transform: translate(2px, -3px); }
+  100% { transform: translate(0px, 0px); }
+}
+
 
 
    .wrap {
