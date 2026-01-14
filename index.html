@@ -48,7 +48,9 @@
       margin: 0;
       font-family: 'Quicksand', sans-serif;
       font-size: var(--fs-base);
-      background: radial-gradient(1200px 600px at 50% -10%, #1b3a32 0%, var(--bg) 60%);
+      ackground: 
+    radial-gradient(900px 500px at 50% -10%, #1f4a3e 0%, transparent 60%),
+    linear-gradient(180deg, #0b1714 0%, var(--bg) 100%);
       color: var(--text);
       min-height: 100vh;
       display: flex;
@@ -209,10 +211,13 @@
     }
 
     .social:hover {
-      transform: translateY(-2px);
-      background: rgba(39,242,178,.18);
-      box-shadow: 0 8px 18px rgba(39,242,178,.25);
-    }
+  transform: translateY(-2px) scale(1.02);
+  background: rgba(39,242,178,.2);
+  box-shadow: 
+    0 8px 18px rgba(39,242,178,.25),
+    0 0 14px rgba(39,242,178,.35);
+}
+
 
     /* Twitch embed */
     .twitch { grid-column: span 12; padding: 0; overflow: hidden; }
