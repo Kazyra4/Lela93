@@ -353,9 +353,31 @@ body::after {
       .twitch iframe { height: 360px; }
     }
     
-    * {
-  animation: none !important;
-  transition: none !important;
+ /* Strato decorativo techno (NO animazioni = NO tremolio) */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      135deg,
+      rgba(39,242,178,0.08) 0px,
+      rgba(39,242,178,0.08) 1px,
+      transparent 1px,
+      transparent 18px
+    ),
+    repeating-linear-gradient(
+      45deg,
+      rgba(39,242,178,0.05) 0px,
+      rgba(39,242,178,0.05) 1px,
+      transparent 1px,
+      transparent 28px
+    );
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 0;
+}
+
 }
 
 }
