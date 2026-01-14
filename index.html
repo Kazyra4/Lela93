@@ -50,11 +50,13 @@
   margin: 0;
   font-family: 'Quicksand', sans-serif;
   font-size: var(--fs-base);
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  padding: 24px;
+  background: radial-gradient(1200px 600px at 50% -10%, #1b3a32 0%, var(--bg) 60%);
   color: var(--text);
+  min-height: 100svh;   /* IMPORTANTISSIMO */
+  padding: 24px;
+  overflow-x: hidden;
+}
+
 
   /* Background fluo techno */
   background:
@@ -146,12 +148,12 @@ body::after {
    .wrap {
   width: 100%;
   max-width: 980px;
+  margin: 0 auto;   /* centra orizzontalmente */
   display: grid;
   grid-template-columns: 1fr;
   gap: 18px;
-  position: relative;   /* NECESSARIO */
-  z-index: 1;           /* contenuto sopra la mascotte */
 }
+
 
 
     /* Header */
