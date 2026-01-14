@@ -168,25 +168,26 @@ body::after {
     }
 
     .avatar {
-  width: 56px;
-  height: 56px;
+  width: 100%;           /* si adatta al contenitore */
+  max-width: 80px;       /* dimensione massima su desktop */
+  aspect-ratio: 1 / 1;   /* sempre proporzioni corrette */
   border-radius: 50%;
   background-size: cover;
   background-position: center;
   box-shadow: 0 0 0 3px rgba(39,242,178,.2);
   animation: float 4s ease-in-out infinite;
-
-  /* Fix per mobile */
-  max-width: 100%;
-  height: auto;
-  aspect-ratio: 1 / 1; /* mantiene sempre forma quadrata e quindi il cerchio */
 }
 
 /* Mobile tweaks */
+@media (max-width: 800px) {
+  .avatar {
+    max-width: 72px;      /* leggero aumento su telefoni */
+  }
+}
+
 @media (max-width: 500px) {
   .avatar {
-    width: 72px;
-    height: auto; /* mantiene cerchio perfetto grazie ad aspect-ratio */
+    max-width: 64px;      /* si restringe leggermente su telefoni stretti */
   }
 }
 
