@@ -144,12 +144,15 @@ body::after {
 
 
    .wrap {
-      width: 100%;
-      max-width: 980px;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
-    }
+  width: 100%;
+  max-width: 980px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  position: relative;   /* NECESSARIO */
+  z-index: 1;           /* contenuto sopra la mascotte */
+}
+
 
     /* Header */
     header {
@@ -348,43 +351,40 @@ body::after {
       .twitch iframe { height: 360px; }
     }
    
-/* ----------------------- */
-/* Mascotte definitiva sul lato destro */
-body::before {
-  content: '';
-  position: fixed;        /* rimane sempre sullo sfondo */
+/* Mascotte come sfondo stabile (NO ZOOM) */
+.mascotte-bg {
+  position: absolute;
   top: 0;
   right: 0;
-  bottom: 0;
-  width: 28%;             /* leggermente più piccola per non sovrapporsi al contenuto */
-  background-image: url('mascotte.png'); /* percorso della mascotte */
+  height: 100%;
+  width: 28%;
+  background-image: url('mascotte.png');
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: right bottom;     /* lato destro inferiore */
-  opacity: 0.15;          /* trasparente senza disturbare */
-  pointer-events: none;   /* non blocca click o scroll */
+  background-position: right bottom;
+  opacity: 0.15;
+  pointer-events: none;
   z-index: 0;
-
-  /* Ottimizzazioni per eliminare tremolio/zoom */
-  transform: translateZ(0);  
-  will-change: opacity;     
 }
 
-/* Mobile tweaks */
+/* Adatta su mobile */
 @media (max-width: 800px) {
-  body::before {
-    width: 25%; /* più piccolo su tablet e telefoni */
+  .mascotte-bg {
+    width: 22%;
   }
 }
 
 @media (max-width: 500px) {
-  body::before {
-    width: 20%; /* dimensioni ottimizzate per telefoni stretti */
+  .mascotte-bg {
+    width: 18%;
+  }
 }
+
 
   </style>
 </head>
 <body>
+ <div class="mascotte-bg"></div>
   <div class="wrap">
     <header>
       <div class="brand">
