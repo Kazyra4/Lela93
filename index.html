@@ -350,34 +350,6 @@ body::after {
       .bio, .schedule { grid-column: span 12; }
       .twitch iframe { height: 360px; }
     }
-   
-/* Mascotte come sfondo stabile (NO ZOOM) */
-.mascotte-bg {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: 28%;
-  background-image: url('mascotte.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: right bottom;
-  opacity: 0.15;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Adatta su mobile */
-@media (max-width: 800px) {
-  .mascotte-bg {
-    width: 22%;
-  }
-}
-
-@media (max-width: 500px) {
-  .mascotte-bg {
-    width: 18%;
-  }
 }
 
 
