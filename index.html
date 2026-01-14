@@ -32,31 +32,34 @@
 }
 
    :root {
-  --bg: #0d1c18;
-  --card: #142c25;
-  --accent: #38f2c3;   /* verde più morbido e brillante */
-  --text: #eafff9;
-  --muted: #9fd8c8;
+  --bg: #0c1f12;         /* sfondo principale scuro */
+  --card: #142d1f;       /* card leggermente più chiara dello sfondo */
+  --accent: #39ffb8;     /* verde fluo principale */
+  --accent-light: #7effd0; /* verde neon chiaro per glow e hover */
+  --text: #e0fff5;       /* testo principale chiaro */
+  --muted: #8fd8c4;      /* testo secondario / sottotitoli */
   --radius: 22px;
   --fs-base: 0.95rem;
 }
 
 
+
     * { box-sizing: border-box; }
 
     body {
-      margin: 0;
-      font-family: 'Quicksand', sans-serif;
-      font-size: var(--fs-base);
-      background: 
-    radial-gradient(900px 500px at 50% -10%, #1f4a3e 0%, transparent 60%),
-    linear-gradient(180deg, #0b1714 0%, var(--bg) 100%);
-      color: var(--text);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      padding: 24px;
-    }
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  font-size: var(--fs-base);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+  background:
+    radial-gradient(1200px 600px at 50% -10%, #1b442d 0%, transparent 60%),
+    linear-gradient(180deg, #0c1f12 0%, #08200f 100%);
+  color: var(--text);
+}
+
 
     .wrap {
       width: 100%;
@@ -130,13 +133,14 @@
       transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
     }
 
-    .btn:hover {
+   .btn:hover {
   transform: translateY(-1px) scale(1.03);
   box-shadow: 
-    0 6px 16px rgba(39,242,178,.25),
-    0 0 12px rgba(39,242,178,.4);
-  background: rgba(39,242,178,.25);
+    0 6px 16px var(--accent-light),
+    0 0 12px var(--accent-light);
+  background: rgba(57,255,184,.25);
 }
+
 
 
     /* Grid sections */
@@ -152,8 +156,9 @@
   padding: 18px;
   box-shadow: 
     0 10px 30px rgba(0,0,0,.25),
-    0 0 20px rgba(39,242,178,.08);
+    0 0 20px var(--accent-light); /* glow verde neon */
 }
+
 
 
     .card h2 {
@@ -212,22 +217,25 @@
 
     .social:hover {
   transform: translateY(-2px) scale(1.02);
-  background: rgba(39,242,178,.2);
+  background: rgba(57,255,184,.2);
   box-shadow: 
-    0 8px 18px rgba(39,242,178,.25),
-    0 0 14px rgba(39,242,178,.35);
+    0 8px 18px rgba(57,255,184,.25),
+    0 0 14px var(--accent-light);
 }
+
 
 
     /* Twitch embed */
     .twitch { grid-column: span 12; padding: 0; overflow: hidden; }
 
     .twitch iframe {
-      width: 100%;
-      height: 340px;
-      border: 0;
-      border-radius: var(--radius);
-    }
+  width: 100%;
+  height: 340px;
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  box-shadow: 0 0 20px var(--accent-light);
+}
+
 
     /* Footer */
     footer {
