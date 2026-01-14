@@ -6,189 +6,259 @@
   <title>Lela93 — Sito Ufficiale</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;600;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0b0f12;
-      --panel: #0f151b;
+      --bg: #0f1f1b;
+      --card: #142a24;
       --accent: #27f2b2;
-      --accent-soft: rgba(39, 242, 178, 0.15);
-      --text: #e7f1ed;
-      --muted: #9fb9b0;
+      --text: #e8fff8;
+      --muted: #a7d7c9;
       --radius: 22px;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
       --fs-base: 0.95rem;
     }
 
     * { box-sizing: border-box; }
-    html, body {
-      margin: 0; padding: 0;
-      background: radial-gradient(1200px 600px at 80% -10%, rgba(39,242,178,.12), transparent 60%), var(--bg);
-      color: var(--text);
-      font-family: 'Quicksand', 'Comfortaa', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial;
+
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
       font-size: var(--fs-base);
+      background: radial-gradient(1200px 600px at 50% -10%, #1b3a32 0%, var(--bg) 60%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 24px;
     }
 
-    a { color: inherit; text-decoration: none; }
-
-    /* NAV */
-    .nav {
-      position: sticky; top: 0; z-index: 20;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(180deg, rgba(11,15,18,.85), rgba(11,15,18,.6));
-      border-bottom: 1px solid rgba(39,242,178,.15);
-    }
-    .nav-inner { max-width: 1100px; margin: 0 auto; padding: 10px 18px; display: flex; align-items: center; justify-content: space-between; }
-    .brand { display: flex; align-items: center; gap: 10px; }
-    .logo { width: 30px; height: 30px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, #3cffc9, #1ac28f); box-shadow: 0 0 0 6px var(--accent-soft), 0 0 18px rgba(39,242,178,.6); }
-    .pfp { width: 32px; height: 32px; border-radius: 50%; border: 1px solid rgba(39,242,178,.5); object-fit: cover; box-shadow: 0 0 0 6px var(--accent-soft); }
-    .brand span { font-weight: 700; letter-spacing: .3px; }
-    .status {
-      margin-left: 8px;
-      padding: 3px 10px;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      border: 1px solid rgba(39,242,178,.4);
-      background: linear-gradient(180deg, rgba(39,242,178,.25), rgba(39,242,178,.05));
-      color: var(--accent);
-    }
-
-    /* HERO */
-    .hero { max-width: 1100px; margin: 0 auto; padding: 56px 18px 22px; }
-    .card { background: linear-gradient(180deg, rgba(39,242,178,.08), rgba(39,242,178,.02)) , var(--panel); border: 1px solid rgba(39,242,178,.18); border-radius: var(--radius); box-shadow: var(--shadow); }
-
-    .hero-banner {
-      padding: 28px;
+    .wrap {
+      width: 100%;
+      max-width: 980px;
       display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 22px;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(180deg, #16342c, var(--card));
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
       align-items: center;
+      gap: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
     }
 
-    .mascot-banner {
-      width: 140px;
-      height: 140px;
-      background: url('mascotte.png') center/contain no-repeat;
-      filter: drop-shadow(0 10px 20px rgba(0,0,0,.4));
-    }
-
-    .kicker { color: var(--accent); font-weight: 600; letter-spacing: .4px; }
-    h1 { margin: 8px 0 10px; font-size: clamp(28px, 4.5vw, 46px); line-height: 1.05; }
-    .subtitle { color: var(--muted); max-width: 52ch; }
-
-    /* SECTIONS */
-    section { max-width: 1100px; margin: 0 auto; padding: 22px 18px; }
-
-    .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-    .tile {
-      padding: 16px;
-      border-radius: 18px;
-      border: 1px solid rgba(39,242,178,.18);
-      background: linear-gradient(180deg, rgba(39,242,178,.12), rgba(39,242,178,.02));
+    .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
+    }
+
+    .avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 0 0 3px rgba(39,242,178,.2);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    h1 {
+      margin: 0;
+      font-family: 'Comfortaa', cursive;
+      font-weight: 700;
+      letter-spacing: .5px;
+      font-size: 1.6rem;
+    }
+
+    .subtitle {
+      margin: 6px 0 0 0;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .cta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      background: rgba(39,242,178,.15);
+      border: 1px solid rgba(39,242,178,.35);
+      color: var(--text);
+      padding: 8px 14px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
       transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
     }
-    .tile:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 0 0 8px rgba(39,242,178,.08) inset, var(--shadow);
-      background: linear-gradient(180deg, rgba(39,242,178,.18), rgba(39,242,178,.04));
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(39,242,178,.25);
+      background: rgba(39,242,178,.25);
     }
-    .icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
-      background: radial-gradient(circle at 30% 30%, #3cffc9, #1ac28f);
+
+    /* Grid sections */
+    .grid {
       display: grid;
-      place-items: center;
-      font-weight: 700;
-      color: #06281c;
-      font-size: 0.9rem;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
     }
-    .tile span { color: var(--muted); }
 
-    .about { display: grid; grid-template-columns: .8fr 1.2fr; gap: 14px; }
-    .avatar { aspect-ratio: 1/1; border-radius: 22px; background: linear-gradient(180deg, rgba(39,242,178,.18), rgba(39,242,178,.04)), url('mascotte.png') center/cover no-repeat; border: 1px solid rgba(39,242,178,.2); }
+    .card {
+      background: linear-gradient(180deg, #143028, var(--card));
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
 
-    .schedule { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
-    .slot { padding: 12px; border-radius: 16px; border: 1px solid rgba(39,242,178,.18); background: linear-gradient(180deg, rgba(39,242,178,.12), rgba(39,242,178,.02)); }
+    .card h2 {
+      margin: 0 0 10px 0;
+      font-family: 'Comfortaa', cursive;
+      font-size: 1.2rem;
+      letter-spacing: .4px;
+    }
 
-    footer { padding: 36px 18px 56px; color: var(--muted); text-align: center; }
+    /* Bio */
+    .bio { grid-column: span 7; }
 
-    @media (max-width: 900px) {
-      .hero-banner { grid-template-columns: 1fr; text-align: center; }
-      .mascot-banner { margin: 0 auto; }
-      .grid { grid-template-columns: repeat(2, 1fr); }
-      .about { grid-template-columns: 1fr; }
-      .schedule { grid-template-columns: 1fr; }
+    /* Schedule */
+    .schedule { grid-column: span 5; }
+
+    .schedule ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .schedule li {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      border-bottom: 1px dashed rgba(255,255,255,.1);
+      color: var(--muted);
+    }
+
+    .schedule li strong { color: var(--text); }
+
+    /* Social */
+    .socials { grid-column: span 12; }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+    }
+
+    .social {
+      background: rgba(39,242,178,.08);
+      border: 1px solid rgba(39,242,178,.25);
+      border-radius: 16px;
+      padding: 12px 14px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+    }
+
+    .social:hover {
+      transform: translateY(-2px);
+      background: rgba(39,242,178,.18);
+      box-shadow: 0 8px 18px rgba(39,242,178,.25);
+    }
+
+    /* Twitch embed */
+    .twitch { grid-column: span 12; padding: 0; overflow: hidden; }
+
+    .twitch iframe {
+      width: 100%;
+      height: 480px;
+      border: 0;
+      border-radius: var(--radius);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: .85rem;
+      padding: 10px;
+    }
+
+    @media (max-width: 800px) {
+      .bio, .schedule { grid-column: span 12; }
+      .twitch iframe { height: 360px; }
     }
   </style>
 </head>
 <body>
-
-  <div class="nav">
-    <div class="nav-inner">
+  <div class="wrap">
+    <header>
       <div class="brand">
-        <img class="pfp" src="LelaProfile.png" alt="Profilo Lela93" />
-        <div class="logo"></div>
-        <span>Lela93</span>
-        <div class="status">OFFLINE</div>
+        <div class="avatar" style="background-image: url('LelaProfile.png');"></div>
+        <div>
+          <h1>Lela93</h1>
+          <p class="subtitle">Ciao, Sono Lela e questo è il mio Sito ufficiale. Qui trovi tutti i miei social, gli orari stream e tanto altro.✨</p>
+        </div>
       </div>
-    </div>
+      <div class="cta">
+        <a class="btn" href="https://www.twitch.tv/lela93" target="_blank">Twitch</a>
+        <a class="btn" href="https://www.youtube.com/@itsLela93" target="_blank">YouTube</a>
+        <a class="btn" href="https://www.tiktok.com/@itslela93" target="_blank">TikTok</a>
+        <a class="btn" href="https://www.instagram.com/_lela93/" target="_blank">Instagram</a>
+      </div>
+    </header>
+
+    <section class="grid">
+      <div class="card bio">
+        <h2>Chi sono</h2>
+        <p>Ciao! Sono Lela, streamer e content creator. Qui trovi tutto quello che riguarda i miei contenuti: live, video, social e novità. Il mio stile è dolce, un po’ anime e sempre positivo ✨</p>
+      </div>
+
+      <div class="card schedule">
+        <h2>Orari Stream</h2>
+        <ul>
+          <li><strong>Lunedì</strong> <span>13:00 – 17:00</span></li>
+          <li><strong>Martedì</strong> <span>13:00 – 17:00</span></li>
+          <li><strong>Mercoledì</strong> <span>13:00 – 17:00</span></li>
+          <li><strong>Giovedì</strong> <span>13:00 – 17:00</span></li>
+          <li><strong>Venerdì</strong> <span>13:00 – 17:00</span></li>
+        </ul>
+      </div>
+
+      <div class="card socials">
+        <h2>Seguimi</h2>
+        <div class="social-grid">
+          <a class="social" href="https://www.twitch.tv/lela93" target="_blank">Twitch <span>→</span></a>
+          <a class="social" href="https://www.youtube.com/@itsLela93" target="_blank">YouTube <span>→</span></a>
+          <a class="social" href="https://www.tiktok.com/@itslela93" target="_blank">TikTok <span>→</span></a>
+          <a class="social" href="https://www.instagram.com/_lela93/" target="_blank">Instagram <span>→</span></a>
+        </div>
+      </div>
+
+      <div class="card twitch">
+        <iframe src="https://player.twitch.tv/?channel=lela93&parent=kazyra4.github.io" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 Lela93 — Tutti i diritti riservati
+    </footer>
   </div>
-
-  <div class="hero">
-    <div class="card hero-banner">
-      <div class="mascot-banner"></div>
-      <div>
-        <div class="kicker">Anime Night · Verde · Dolce</div>
-        <h1>Lela93</h1>
-        <p class="subtitle">Ciao, Sono Lela e questo è il mio Sito ufficiale. Qui trovi tutti i miei social, gli orari stream e tanto altro.✨</p>
-      </div>
-    </div>
-  </div>
-
-  <section id="social">
-    <h2>Social Hub</h2>
-    <div class="grid">
-      <a class="tile" href="https://www.twitch.tv/lela93" target="_blank"><div class="icon">T</div><div><strong>Twitch</strong><br><span>Live & VOD</span></div></a>
-      <a class="tile" href="https://www.youtube.com/@itsLela93" target="_blank"><div class="icon">Y</div><div><strong>YouTube</strong><br><span>Video & Highlights</span></div></a>
-      <a class="tile" href="https://www.tiktok.com/@itslela93" target="_blank"><div class="icon">K</div><div><strong>TikTok</strong><br><span>Clip brevi</span></div></a>
-      <a class="tile" href="https://www.instagram.com/_lela93/" target="_blank"><div class="icon">I</div><div><strong>Instagram</strong><br><span>Stories & Foto</span></div></a>
-    </div>
-  </section>
-
-  <section id="stream">
-    <h2>Orari Stream</h2>
-    <div class="card" style="padding:16px">
-      <div class="schedule">
-        <div class="slot"><strong>Lunedì</strong><br><span>13:00 — 17:00</span></div>
-        <div class="slot"><strong>Martedì</strong><br><span>13:00 — 17:00</span></div>
-        <div class="slot"><strong>Mercoledì</strong><br><span>13:00 — 17:00</span></div>
-        <div class="slot"><strong>Giovedì</strong><br><span>13:00 — 17:00</span></div>
-        <div class="slot"><strong>Venerdì</strong><br><span>13:00 — 17:00</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="about">
-    <h2>About</h2>
-    <div class="about">
-      <div class="avatar" style="background-image: url('mascotte.png');"></div>
-      <div class="card" style="padding:18px">
-        <p>Ciao! Sono <strong>Lela93</strong>. Porto contenuti gaming di tutti i tipi e se sono horror bè...ho paura ahah. La mia mascotte è una <strong>Lontra</strong> 🦦💚. Qui trovi tutto quello che serve per seguirmi ovunque.</p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    © <span id="year"></span> Lela93 · Tutti i diritti riservati
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
