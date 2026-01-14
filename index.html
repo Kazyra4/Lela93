@@ -363,8 +363,10 @@ body::before {
   opacity: 0.15; /* trasparenza per non disturbare */
   pointer-events: none; /* non interferisce con click o scroll */
   z-index: 0;
-  transform: translateZ(0); /* forza la GPU a gestire i layer separatamente */
-  will-change: transform, opacity;
+  
+   /* ...tutto il CSS esistente della mascotte... */
+  transform: translateZ(0);   /* forza la GPU a gestire separatamente */
+  will-change: opacity;       /* ottimizza il layer */
 }
 
   </style>
