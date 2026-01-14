@@ -155,12 +155,12 @@
     }
 
     /* Bio */
-    .bio { grid-column: span 6; }        /* Chi sono un po’ più stretto */
+    .bio { grid-column: span 6; }        /* Chi sono */
 
     /* Schedule */
-    .schedule { grid-column: span 6; }   /* Orari stream stessa larghezza della live */
-
-    .twitch { grid-column: span 6; }     /* Live più piccola */
+    .schedule { grid-column: span 6; }   /* Orari Stream */
+   
+    .twitch { grid-column: span 12; }    /* Live a tutta larghezza */
 
     .schedule ul {
       list-style: none;
@@ -245,20 +245,26 @@
 
     </header>
 
-    <section class="grid">
+ <section class="grid">
 
-  <!-- Chi sono -->
+  <!-- Live Twitch (IN ALTO, A TUTTA LARGHEZZA) -->
+  <div class="card twitch">
+    <iframe 
+      src="https://player.twitch.tv/?channel=lela93&parent=kazyra4.github.io" 
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <!-- Chi sono (SOTTO LA LIVE) -->
   <div class="card bio">
     <h2>Chi sono</h2>
-    <p>Ciao! Sono Lela, streamer e content creator. Qui trovi tutto quello che riguarda i miei contenuti: live, video, social e novità. Il mio stile è dolce, un po’ anime e sempre positivo ✨</p>
+    <p>
+      Ciao! Sono Lela, streamer e content creator. Qui trovi tutto quello che riguarda i miei contenuti:
+      live, video, social e novità. Il mio stile è dolce, un po’ anime e sempre positivo ✨
+    </p>
   </div>
 
-  <!-- Live Twitch (al posto di Orari Stream) -->
-  <div class="card twitch">
-    <iframe src="https://player.twitch.tv/?channel=lela93&parent=kazyra4.github.io" allowfullscreen></iframe>
-  </div>
-
-  <!-- Orari Stream (sotto la live) -->
+  <!-- Orari Stream (ACCANTO a Chi sono) -->
   <div class="card schedule">
     <h2>Orari Stream</h2>
     <ul>
@@ -295,6 +301,7 @@
   </div>
 
 </section>
+
 
     <footer>
       © 2026 Lela93 — Tutti i diritti riservati
