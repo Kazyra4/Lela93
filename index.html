@@ -46,7 +46,7 @@
 
     * { box-sizing: border-box; }
 
-   body {
+  body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
   font-size: var(--fs-base);
@@ -56,21 +56,21 @@
   padding: 24px;
   color: var(--text);
 
-  /* Background super fluo, verde elettrico */
+  /* Background super fluo e futuristico, tema carino */
   background:
-    radial-gradient(1200px 600px at 50% -10%, #3effa0 0%, transparent 60%), /* alone centrale verde chiaro */
-    linear-gradient(180deg, #0b1f0c 0%, #06110a 100%),                    /* sfondo scuro */
+    radial-gradient(1200px 600px at 50% -10%, #3effa0 0%, transparent 60%), /* alone centrale verde brillante */
+    linear-gradient(180deg, #0b1f0c 0%, #06110a 100%),                      /* sfondo scuro */
     repeating-linear-gradient(
       45deg,
-      rgba(62,255,160,0.1),
-      rgba(62,255,160,0.1) 2px,
+      rgba(62,255,160,0.12),
+      rgba(62,255,160,0.12) 2px,
       transparent 2px,
       transparent 6px
     ),
     repeating-linear-gradient(
       -45deg,
-      rgba(62,255,160,0.1),
-      rgba(62,255,160,0.1) 2px,
+      rgba(62,255,160,0.12),
+      rgba(62,255,160,0.12) 2px,
       transparent 2px,
       transparent 6px
     );
@@ -83,6 +83,7 @@
   0% { background-position: 0 0, 0 0, 0 0, 0 0; }
   100% { background-position: 120px 120px, -120px -120px, 60px 60px, -60px -60px; }
 }
+
 
    .wrap {
       width: 100%;
