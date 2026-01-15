@@ -32,12 +32,12 @@
 }
 
    :root {
-  --bg: #0c1f12;         /* sfondo principale scuro */
-  --card: #142d1f;       /* card leggermente più chiara dello sfondo */
-  --accent: #39ffb8;     /* verde fluo principale */
-  --accent-light: #7effd0; /* verde neon chiaro per glow e hover */
-  --text: #e0fff5;       /* testo principale chiaro */
-  --muted: #8fd8c4;      /* testo secondario / sottotitoli */
+  --bg: #071b12;            /* verde profondo */
+  --card: #0f2a20;
+  --accent: #39ffb8;        /* verde fluo firma */
+  --accent-soft: #7fffe1;   /* verde acqua dolce */
+  --text: #e8fff8;
+  --muted: #a7d7c9;
   --radius: 22px;
   --fs-base: 0.95rem;
 }
@@ -55,9 +55,9 @@
   padding: 24px;
   overflow-x: hidden;
 
-  background:
-    radial-gradient(1200px 600px at 50% -10%, #3effa0 0%, rgba(62,255,160,0.25) 45%, transparent 70%),
-    linear-gradient(180deg, #05150c 0%, #0c2a1a 100%),
+background:
+    radial-gradient(900px 500px at 50% -10%, rgba(57,255,184,0.35), transparent 65%),
+    linear-gradient(180deg, #05150c 0%, var(--bg) 100%);
     repeating-linear-gradient(
       45deg,
       rgba(62,255,160,0.15),
@@ -236,11 +236,10 @@ body::after {
     }
 
    .btn:hover {
-  transform: translateY(-1px) scale(1.03);
-  box-shadow: 
-    0 6px 16px var(--accent-light),
-    0 0 12px var(--accent-light);
-  background: rgba(57,255,184,.25);
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 12px rgba(57,255,184,0.6),
+    0 0 24px rgba(57,255,184,0.4);
 }
 
 
@@ -265,8 +264,16 @@ body::after {
     0 10px 30px rgba(0,0,0,.35),
     0 0 24px rgba(57,255,184,0.35);
   border: 1px solid rgba(57,255,184,0.25);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
 }
 
+    .card:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 14px 40px rgba(0,0,0,.45),
+    0 0 28px rgba(57,255,184,0.45);
+  border-color: rgba(57,255,184,0.45);
+}
 
 
 
@@ -276,7 +283,9 @@ body::after {
   font-size: 1.2rem;
   letter-spacing: .4px;
   color: var(--accent);
-  text-shadow: 0 0 8px rgba(57,255,184,0.6);
+  text-shadow:
+    0 0 8px rgba(57,255,184,0.6),
+    0 0 16px rgba(127,255,225,0.4);
 }
 
 
@@ -378,6 +387,20 @@ body::before {
   pointer-events: none; /* non interferisce con click o scroll */
   z-index: 0;
 }
+    body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(rgba(57,255,184,0.15) 1px, transparent 1px),
+    radial-gradient(rgba(127,255,225,0.12) 1px, transparent 1px);
+  background-size: 60px 60px, 120px 120px;
+  background-position: 0 0, 30px 30px;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+}
+
 
   </style>
 </head>
