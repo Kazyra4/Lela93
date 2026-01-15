@@ -42,25 +42,25 @@
       display: block;
     }
 
-    .instant-gaming-card {
-  background: #0a3300; 
+   .instant-gaming-card {
+  background: #0a3300;
   border: 2px solid #00FF66;
   border-radius: 15px;
   padding: 20px;
   margin: 20px auto;
-  max-width: 800px;
+  max-width: 900px;
   box-shadow: 0 0 20px #00FF66;
   color: #CCFF99;
-  font-family: 'Arial', sans-serif;
 
-  display: flex;               /* Flex orizzontale */
-  align-items: center;         /* Centra verticalmente */
-  justify-content: space-between; /* Spazio tra testo e pulsante */
+  display: flex !important;        /* forza flex */
+  flex-direction: row !important; /* forza orizzontale */
+  align-items: center;
+  justify-content: space-between;
   gap: 20px;
 }
 
 .instant-gaming-card .card-text {
-  flex: 1;                     /* Occupa tutto lo spazio disponibile */
+  flex: 1;
   font-size: 16px;
   line-height: 1.5;
 }
@@ -74,7 +74,7 @@
   border-radius: 10px;
   box-shadow: 0 0 10px #00FF66;
   transition: 0.3s;
-  white-space: nowrap;          /* Non va a capo */
+  white-space: nowrap;
 }
 
 .instant-gaming-card .button:hover {
@@ -82,6 +82,7 @@
   box-shadow: 0 0 20px #66FF99;
   transform: translateY(-2px);
 }
+
 
 .status.live {
   background-color: #27f2b2;
@@ -517,10 +518,19 @@ body::before {
    
 <div class="card instant-gaming-card">
   <div class="card-text">
-    Vuoi equipaggiarti con giochi epici a prezzo scontato e supportare questa avventura nerd? Visita il mio portale magico, aggiungendo <strong>?igr=Lela93YT</strong> a qualsiasi link di Instant Gaming, mi lanci una Fireball di supporto (senza spendere mana in più)! Grazie, eroe del party! 🎮✨
+    Vuoi equipaggiarti con giochi epici a prezzo scontato e supportare questa avventura nerd? 
+    Visita il mio portale magico, aggiungendo <strong>?igr=Lela93YT</strong> a qualsiasi link di Instant Gaming, 
+    mi lanci una Fireball di supporto (senza spendere mana in più)! 
+    Grazie, eroe del party! 🎮✨
   </div>
-  <a href="https://www.instant-gaming.com/?igr=Lela93YT" target="_blank" class="button">Visita Instant Gaming</a>
+
+  <a href="https://www.instant-gaming.com/?igr=Lela93YT" 
+     target="_blank" 
+     class="button">
+     Visita Instant Gaming
+  </a>
 </div>
+
 
   <!-- Seguimi -->
   <div class="card socials">
