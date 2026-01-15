@@ -41,6 +41,7 @@
       z-index: -1;
       display: block;
     }
+
     .instant-gaming-card {
   background: #0a3300; 
   border: 2px solid #00FF66;
@@ -81,8 +82,6 @@
   box-shadow: 0 0 20px #66FF99;
   transform: translateY(-2px);
 }
-
-
 
 .status.live {
   background-color: #27f2b2;
@@ -473,7 +472,6 @@ body::before {
   </style>
 </head>
 <body>
-</div>
   <div class="wrap">
     <header>
       <div class="brand">
@@ -504,8 +502,8 @@ body::before {
       Hey! Sono Lela. Variety Streamer. Ogni live è un’occasione per divertirci insieme, ridere, chiacchierare e condividere. Il mio obiettivo? Farvi sentire parte di qualcosa di speciale 💜 ⋆ Da me sarete sempre i benvenuti. Questa è il mio contatto per collab.⋆*:･ﾟ✧ ► Email : lela93twitch@gmail.com
     </p>
   </div>
-   
- <!-- Orari Stream (ACCANTO a Chi sono) -->
+
+  <!-- Orari Stream (ACCANTO a Chi sono) -->
   <div class="card schedule">
     <h2>Orari Stream <span class="orari-note">— (in caso di variazioni, avviso su Instagram)</span></h2>
    <ul>
@@ -523,7 +521,7 @@ body::before {
   </div>
   <a href="https://www.instant-gaming.com/?igr=Lela93YT" target="_blank" class="button">Visita Instant Gaming</a>
 </div>
-   
+
   <!-- Seguimi -->
   <div class="card socials">
     <h2>Seguimi</h2>
@@ -551,95 +549,60 @@ body::before {
   <canvas id="backgroundCanvas"></canvas>
    <!-- Script per animare lo sfondo -->
   <script>
-const canvas = document.getElementById('backgroundCanvas');
-const ctx = canvas.getContext('2d');
-let width = canvas.width = window.innerWidth;
-let height = canvas.height = window.innerHeight;
+    // Tutto il codice JS che ti ho dato prima
+    const canvas = document.getElementById('backgroundCanvas');
+    const ctx = canvas.getContext('2d');
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
 
-// Particelle
-const particles = [];
-const numParticles = 120;
+    const particles = [];
+    const numParticles = 100;
 
-for (let i = 0; i < numParticles; i++) {
-  particles.push({
-    x: Math.random() * width,
-    y: Math.random() * height,
-    radius: Math.random() * 2 + 1,
-    baseRadius: Math.random() * 2 + 1,
-    color: Math.random() < 0.5 ? '#66FF99' : '#CCFF99',
-    dx: (Math.random() - 0.5) * 0.6,
-    dy: (Math.random() - 0.5) * 0.6,
-    opacity: Math.random() * 0.8 + 0.2,
-    opacityDir: Math.random() < 0.5 ? 0.01 : -0.01
-  });
-}
-
-// Linee geometriche leggere
-function drawLines() {
-  for (let i = 0; i < particles.length; i++) {
-    for (let j = i + 1; j < particles.length; j++) {
-      const dx = particles[i].x - particles[j].x;
-      const dy = particles[i].y - particles[j].y;
-      const dist = Math.sqrt(dx*dx + dy*dy);
-      if (dist < 120) {
-        ctx.strokeStyle = 'rgba(102,255,153,' + (1 - dist/120) * 0.2 + ')';
-        ctx.beginPath();
-        ctx.moveTo(particles[i].x, particles[i].y);
-        ctx.lineTo(particles[j].x, particles[j].y);
-        ctx.stroke();
-      }
+    for (let i = 0; i < numParticles; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        radius: Math.random() * 2 + 1,
+        color: Math.random() < 0.5 ? '#66FF99' : '#CCFF99',
+        dx: (Math.random() - 0.5) * 0.5,
+        dy: (Math.random() - 0.5) * 0.5
+      });
     }
-  }
-}
 
-function draw() {
-  // Gradiente sfondo
-  const grad = ctx.createRadialGradient(width/2, height/2, 0, width/2, height/2, width/1.5);
-  grad.addColorStop(0, '#00FF66'); 
-  grad.addColorStop(0.3, '#009933');
-  grad.addColorStop(1, '#001F00');
+    function draw() {
+      const grad = ctx.createRadialGradient(width/2, height/2, 0, width/2, height/2, width/1.5);
+      grad.addColorStop(0, '#00FF66'); 
+      grad.addColorStop(0.3, '#009933');
+      grad.addColorStop(1, '#001F00');
 
-  ctx.fillStyle = grad;
-  ctx.fillRect(0, 0, width, height);
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, width, height);
 
-  // Particelle
-  particles.forEach(p => {
-    // Pulsazione radius
-    p.radius = p.baseRadius + Math.sin(Date.now() * 0.005 + p.x) * 0.5;
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.shadowColor = p.color;
+        ctx.shadowBlur = 10;
+        ctx.fill();
 
-    // Cambia opacità leggermente
-    p.opacity += p.opacityDir;
-    if (p.opacity > 1 || p.opacity < 0.2) p.opacityDir *= -1;
+        p.x += p.dx;
+        p.y += p.dy;
 
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-    ctx.fillStyle = p.color;
-    ctx.globalAlpha = p.opacity;
-    ctx.shadowColor = p.color;
-    ctx.shadowBlur = 10;
-    ctx.fill();
-    ctx.globalAlpha = 1;
+        if (p.x < 0 || p.x > width) p.dx *= -1;
+        if (p.y < 0 || p.y > height) p.dy *= -1;
+      });
 
-    p.x += p.dx;
-    p.y += p.dy;
+      requestAnimationFrame(draw);
+    }
 
-    if (p.x < 0 || p.x > width) p.dx *= -1;
-    if (p.y < 0 || p.y > height) p.dy *= -1;
-  });
+    draw();
 
-  // Linee geometriche tra particelle
-  drawLines();
-
-  requestAnimationFrame(draw);
-}
-
-draw();
-
-window.addEventListener('resize', () => {
-  width = canvas.width = window.innerWidth;
-  height = canvas.height = window.innerHeight;
-});
-</script>
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    });
+    </script>
 
 </section>
 
