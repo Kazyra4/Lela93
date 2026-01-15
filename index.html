@@ -46,38 +46,34 @@
   border: 2px solid #00FF66;
   border-radius: 15px;
   padding: 20px;
-  margin: 20px 0;
+  margin: 20px auto;
+  max-width: 800px;
   box-shadow: 0 0 20px #00FF66;
   color: #CCFF99;
   font-family: 'Arial', sans-serif;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
 
-  display: flex;            /* Flexbox per orizzontale */
-  align-items: center;      /* Centra verticalmente */
+  display: flex;               /* Flex orizzontale */
+  align-items: center;         /* Centra verticalmente */
   justify-content: space-between; /* Spazio tra testo e pulsante */
-  gap: 20px;                /* Spazio tra testo e pulsante */
+  gap: 20px;
 }
 
-.instant-gaming-card p {
-  margin: 0;               /* Tolto margin-bottom */
-  line-height: 1.5;
+.instant-gaming-card .card-text {
+  flex: 1;                     /* Occupa tutto lo spazio disponibile */
   font-size: 16px;
-  flex: 1;                 /* Occupa tutto lo spazio disponibile */
+  line-height: 1.5;
 }
 
 .instant-gaming-card .button {
-  display: inline-block;
   padding: 12px 25px;
   background: #00FF66;
   color: #001F00;
   font-weight: bold;
   text-decoration: none;
   border-radius: 10px;
-  transition: 0.3s;
   box-shadow: 0 0 10px #00FF66;
-  white-space: nowrap;      /* Evita che il pulsante vada a capo */
+  transition: 0.3s;
+  white-space: nowrap;          /* Non va a capo */
 }
 
 .instant-gaming-card .button:hover {
@@ -85,6 +81,7 @@
   box-shadow: 0 0 20px #66FF99;
   transform: translateY(-2px);
 }
+
 
 
 .status.live {
@@ -520,9 +517,10 @@ body::before {
     </ul>
   </div>
    
-<!-- Nuova card Instant Gaming -->
 <div class="card instant-gaming-card">
-  <p>Vuoi equipaggiarti con giochi epici a prezzo scontato e supportare questa avventura nerd? Visita il mio portale magico, aggiungendo <strong>?igr=Lela93YT</strong> a qualsiasi link di Instant Gaming, mi lanci una Fireball di supporto (senza spendere mana in più)! Grazie, eroe del party! 🎮✨</p>
+  <div class="card-text">
+    Vuoi equipaggiarti con giochi epici a prezzo scontato e supportare questa avventura nerd? Visita il mio portale magico, aggiungendo <strong>?igr=Lela93YT</strong> a qualsiasi link di Instant Gaming, mi lanci una Fireball di supporto (senza spendere mana in più)! Grazie, eroe del party! 🎮✨
+  </div>
   <a href="https://www.instant-gaming.com/?igr=Lela93YT" target="_blank" class="button">Visita Instant Gaming</a>
 </div>
    
